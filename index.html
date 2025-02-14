@@ -1,1 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Yaya 💕</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+    <style>
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
 
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #fce7f3;
+            padding: 1rem;
+        }
+
+        .container {
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 28rem;
+        }
+
+        .text-center { text-align: center; }
+        
+        .input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .input:focus {
+            outline: none;
+            ring: 2px solid #ec4899;
+        }
+
+        .button {
+            width: 100%;
+            background: #ec4899;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background: #db2777;
+        }
+
+        .timer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .timer-box {
+            background: #fce7f3;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .timer-box:hover {
+            transform: scale(1.1);
+            background: #fbcfe8;
+        }
+
+        .timer-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ec4899;
+            animation: pulse 2s infinite;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .photo-container {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .photo-container:hover {
+            transform: scale(1.05);
+        }
+
+        .photo {
+            width: 100%;
+            height: 8rem;
+            object-fit: cover;
+            border-radius: 0.5rem;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .photo-container:hover .photo-overlay {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .photo-caption {
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+            text-align: center;
+            padding: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .photo-container:hover .photo-caption {
+            opacity: 1;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+        }
+
+        .message-bubble {
+            background: #fce7f3;
+            padding: 1rem;
+            border-radius: 1rem;
+            border-top-left-radius: 0;
+            max-width: 80%;
+            transition: background-color 0.3s;
+        }
+
+        .message-bubble:hover {
+            background: #fbcfe8;
+        }
+
+        .message-timestamp {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+
+        .gradient-line {
+            height: 2px;
+            background: linear-gradient(90deg, #fce7f3, #ec4899, #fce7f3);
+            background-size: 200% 100%;
+            animation: gradient 2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        const photos = [
+            { url: '/api/placeholder/400/300', caption: 'First date with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Beach day with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Date night with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Movie time with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Coffee with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Park walk with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Dinner with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Shopping with Yaya' },
+            { url: '/api/placeholder/400/300', caption: 'Weekend with Yaya' }
+        ];
+
+        const messages = [
+            { content: 'I love you very much Yaya 💕', timestamp: '2024-02-14' },
+            { content: 'Miss you already Yaya 💖', timestamp: '2024-02-13' },
+            { content: 'Thinking of you Yaya', timestamp: '2024-02-12' },
+            { content: 'Can\'t wait to see you again Yaya', timestamp: '2024-02-11' },
+            { content: 'You make me so happy Yaya', timestamp: '2024-02-10' },
+            { content: 'Sweet dreams my Yaya', timestamp: '2024-02-09' },
+            { content: 'You\'re the best thing that happened to me Yaya', timestamp: '2024-02-08' },
+            { content: 'Forever yours Yaya 💖', timestamp: '2024-02-07' },
+            { content: 'My heart belongs to you Yaya', timestamp: '2024-02-06' }
+        ];
+
+        const correctPassword = '122124'; // Password format: mmddyy for December 21, 2024
+        let isAuthenticated = false;
+
+        function renderLoginPage() {
+            return `
+                <div class="login-container">
+                    <div class="card login-card">
+                        <div class="text-center">
+                            <i data-lucide="lock" style="width: 40px; height: 40px; color: #ec4899; margin: 0 auto 1rem;"></i>
+                            <h1 style="font-size: 1.5rem; font-weight: bold; color: #1f2937; margin-bottom: 0.5rem;">Yaya</h1>
+                            <p style="color: #4b5563;">Enter our anniversary date (mm/dd/yy)</p>
+                        </div>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            class="input" 
+                            placeholder="Enter password"
+                        >
+                        <button onclick="checkPassword()" class="button">
+                            Enter
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderMainContent() {
+            return `
+                <div class="container">
+                    <!-- Timer Card -->
+                    <div class="card">
+                        <div class="gradient-line"></div>
+                        <h2 class="text-center" style="font-size: 1.5rem; font-weight: bold; color: #ec4899; margin: 1.5rem 0;">
+                            Our Time Together 🤍
+                        </h2>
+                        <p class="text-center" style="color: #4b5563; margin-bottom: 1rem;">
+                            Since December 21, 2024 (LA Time)
+                        </p>
+                        <div class="timer-grid">
+                            <div class="timer-box">
+                                <div class="timer-number" id="days">0</div>
+                                <div style="color: #ec4899;">Days</div>
+                            </div>
+                            <div class="timer-box">
+                                <div class="timer-number" id="hours">0</div>
+                                <div style="color: #ec4899;">Hours</div>
+                            </div>
+                            <div class="timer-box">
+                                <div class="timer-number" id="minutes">0</div>
+                                <div style="color: #ec4899;">Minutes</div>
+                            </div>
+                            <div class="timer-box">
+                                <div class="timer-number" id="seconds">0</div>
+                                <div style="color: #ec4899;">Seconds</div>
+                            </div>
+                        </div>
+                        <div class="gradient-line" style="margin-top: 1.5rem;"></div>
+                    </div>
+
+                    <!-- Photo Gallery -->
+                    <div class="card">
+                        <h2 class="text-center" style="font-size: 1.25rem; font-weight: bold; color: #ec4899; margin-bottom: 1.5rem;">
+                            Our Precious Moments 📸
+                        </h2>
+                        <div class="photo-grid">
+                            ${photos.map(photo => `
+                                <div class="photo-container">
+                                    <img src="${photo.url}" alt="${photo.caption}" class="photo">
+                                    <div class="photo-overlay">
+                                        <p class="photo-caption">${photo.caption}</p>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Messages -->
+                    <div class="card">
+                        <h2 class="text-center" style="font-size: 1.25rem; font-weight: bold; color: #ec4899; margin-bottom: 1.5rem;">
+                            I could read these all day 💌
+                        </h2>
+                        ${messages.map(message => `
+                            <div class="message">
+                                <div class="message-bubble">
+                                    <p>${message.content}</p>
+                                    <p class="message-timestamp">${message.timestamp}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <!-- Love Letter -->
+                    <div class="card">
+                        <h2 class="text-center" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">
+                            My Love Letter to Yaya
+                        </h2>
+                        <p style="color: #1f2937; line-height: 1.625;">
+                            Dear Yaya, every day with you feels like a celebration of love. I want to take a moment to tell you just how much you mean to me...
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateTimer() {
+            const startDate = new Date('2024-12-21T00:00:00-08:00'); // LA time
+            const now = new Date();
+            const difference = now - startDate;
+
+            document.getElementById('days').textContent = Math.floor(difference / (1000 * 60 * 60 * 24));
+            document.getElementById('hours').textContent = Math.floor((difference / (1000 * 60 * 60)) % 24);
+            document.getElementById('minutes').textContent = Math.floor((difference / 1000 / 60) % 60);
+            document.getElementById('seconds').textContent = Math.floor((difference / 1000) % 60);
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            if (password === correctPassword) {
+                isAuthenticated = true;
+                render();
+                setInterval(updateTimer, 1000);
+            } else {
+                alert('Incorrect password! Hint: Try our anniversary date (mm/dd/yy)');
+                document.getElementById('password').value = '';
+            }
+        }
+
+        function render() {
+            const app = document.getElementById('app');
+            app.innerHTML = isAuthenticated ? renderMainContent() : renderLoginPage();
+            if (!isAuthenticated) {
+                lucide.createIcons();
+                const input = document.getElementById('password');
+                input.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        checkPassword();
+                    }
+                });
+            }
+        }
+
+        // Initial render
+        render();
+    </script>
+</body>
+</html>
