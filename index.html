@@ -1,244 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Yaya 💕</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
-    <style>
-        @keyframes bounce-slow {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Yaya 💕</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/umd/lucide.min.js"></script>
+  <style>
+    @keyframes bounce-slow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
 
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-3deg); }
-            50% { transform: rotate(3deg); }
-        }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
 
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
 
-        body {
-            min-height: 100vh;
-            background-color: #fce7f3;
-            padding: 1rem;
-        }
+    body {
+      min-height: 100vh;
+      background-color: #fce7f3;
+      padding: 1rem;
+    }
 
-        .container {
-            max-width: 42rem;
-            margin: 0 auto;
-        }
+    .container {
+      max-width: 42rem;
+      margin: 0 auto;
+    }
 
-        .card {
-            background: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
+    .card {
+      background: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .login-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
+    .login-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
 
-        .login-card {
-            width: 100%;
-            max-width: 28rem;
-        }
+    .login-card {
+      width: 100%;
+      max-width: 28rem;
+    }
 
-        .text-center { text-align: center; }
-        
-        .input {
-            width: 100%;
-            padding: 0.5rem 1rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 0.5rem;
-            margin: 1rem 0;
-        }
+    .text-center { text-align: center; }
 
-        .input:focus {
-            outline: none;
-            ring: 2px solid #ec4899;
-        }
+    .input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      margin: 1rem 0;
+    }
 
-        .button {
-            width: 100%;
-            background: #ec4899;
-            color: white;
-            padding: 0.5rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+    .input:focus {
+      outline: none;
+      ring: 2px solid #ec4899;
+    }
 
-        .button:hover {
-            background: #db2777;
-        }
+    .button {
+      width: 100%;
+      background: #ec4899;
+      color: white;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-        .timer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            text-align: center;
-        }
+    .button:hover {
+      background: #db2777;
+    }
 
-        .timer-box {
-            background: #fce7f3;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            transition: transform 0.3s, background-color 0.3s;
-        }
+    .timer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
 
-        .timer-box:hover {
-            transform: scale(1.1);
-            background: #fbcfe8;
-        }
+    .timer-box {
+      background: #fce7f3;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      transition: transform 0.3s, background-color 0.3s;
+    }
 
-        .timer-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #ec4899;
-            animation: pulse 2s infinite;
-        }
+    .timer-box:hover {
+      transform: scale(1.1);
+      background: #fbcfe8;
+    }
 
-        .photo-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
+    .timer-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ec4899;
+      animation: pulse 2s infinite;
+    }
 
-        .photo-container {
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
 
-        .photo-container:hover {
-            transform: scale(1.05);
-        }
+    .photo-container {
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
 
-        .photo {
-            width: 100%;
-            height: 8rem;
-            object-fit: cover;
-            border-radius: 0.5rem;
-        }
+    .photo-container:hover {
+      transform: scale(1.05);
+    }
 
-        .photo-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s;
-        }
+    .photo {
+      width: 100%;
+      height: 8rem;
+      object-fit: cover;
+      border-radius: 0.5rem;
+    }
 
-        .photo-container:hover .photo-overlay {
-            background: rgba(0, 0, 0, 0.5);
-        }
+    .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      transition: background-color 0.3s;
+    }
 
-        .photo-caption {
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s;
-            text-align: center;
-            padding: 0.5rem;
-            font-size: 0.875rem;
-        }
+    .photo-container:hover .photo-overlay {
+      background: rgba(0, 0, 0, 0.5);
+    }
 
-        .photo-container:hover .photo-caption {
-            opacity: 1;
-        }
+    .photo-caption {
+      color: white;
+      opacity: 0;
+      transition: opacity 0.3s;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.875rem;
+    }
 
-        .message {
-            margin-bottom: 1rem;
-        }
+    .photo-container:hover .photo-caption {
+      opacity: 1;
+    }
 
-        .message-bubble {
-            background: #fce7f3;
-            padding: 1rem;
-            border-radius: 1rem;
-            border-top-left-radius: 0;
-            max-width: 80%;
-            transition: background-color 0.3s;
-        }
+    .message {
+      margin-bottom: 1rem;
+    }
 
-        .message-bubble:hover {
-            background: #fbcfe8;
-        }
+    .message-bubble {
+      background: #fce7f3;
+      padding: 1rem;
+      border-radius: 1rem;
+      border-top-left-radius: 0;
+      max-width: 80%;
+      transition: background-color 0.3s;
+    }
 
-        .message-timestamp {
-            font-size: 0.75rem;
-            color: #6b7280;
-            margin-top: 0.5rem;
-        }
+    .message-bubble:hover {
+      background: #fbcfe8;
+    }
 
-        .gradient-line {
-            height: 2px;
-            background: linear-gradient(90deg, #fce7f3, #ec4899, #fce7f3);
-            background-size: 200% 100%;
-            animation: gradient 2s linear infinite;
-        }
-    </style>
+    .message-timestamp {
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-top: 0.5rem;
+    }
+
+    .gradient-line {
+      height: 2px;
+      background: linear-gradient(90deg, #fce7f3, #ec4899, #fce7f3);
+      background-size: 200% 100%;
+      animation: gradient 2s linear infinite;
+    }
+  </style>
 </head>
 <body>
-    <div id="app"></div>
+<div id="app"></div>
 
-    <script>
-        const photos = [
-            { url: '/api/placeholder/400/300', caption: 'First date with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Beach day with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Date night with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Movie time with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Coffee with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Park walk with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Dinner with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Shopping with Yaya' },
-            { url: '/api/placeholder/400/300', caption: 'Weekend with Yaya' }
-        ];
+<script>
+  const photos = [
+    { url: '/api/placeholder/400/300', caption: 'First date with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Beach day with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Date night with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Movie time with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Coffee with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Park walk with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Dinner with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Shopping with Yaya' },
+    { url: '/api/placeholder/400/300', caption: 'Weekend with Yaya' }
+  ];
 
-        const messages = [
-            { content: 'I love you very much Yaya 💕', timestamp: '2024-02-14' },
-            { content: 'Miss you already Yaya 💖', timestamp: '2024-02-13' },
-            { content: 'Thinking of you Yaya', timestamp: '2024-02-12' },
-            { content: 'Can\'t wait to see you again Yaya', timestamp: '2024-02-11' },
-            { content: 'You make me so happy Yaya', timestamp: '2024-02-10' },
-            { content: 'Sweet dreams my Yaya', timestamp: '2024-02-09' },
-            { content: 'You\'re the best thing that happened to me Yaya', timestamp: '2024-02-08' },
-            { content: 'Forever yours Yaya 💖', timestamp: '2024-02-07' },
-            { content: 'My heart belongs to you Yaya', timestamp: '2024-02-06' }
-        ];
+  const messages = [
+    { content: 'you were very beautiful even without makeup btw may, you don’t wear makeup around me;) (ik you said you do it for you but i just want you to know)', timestamp: '12-22-2024' },
+    { content: 'I truly feel as if we are soulmates, and though difficult decisions will have to made in the future regarding this relationship, I know the choice we make will work best for us because we are meant to be together, in one way or another. You don’t know how much i care about you, and just looking at your face makes me day instantly better, even when you are stinky and haven’t showered all day in bed. I don’t care what condition you are in, wether you are mad at me, or even if you dont love me anymore, I will always be with you\n' +
+        '❤️❤️', timestamp: '01-01-2025' },
+    { content: 'i’m hugging my pillow pretending it’s u', timestamp: '12-22-2024' },
+    { content: 'Chit tal you too yaya', timestamp: '01-21-2025' },
+    { content: 'you can sit on my legs i’ll get wet for u. and then i’ll carry you across the grass so you get no water on you. on my back while running', timestamp: '02-14-2025' },
+  ];
 
-        const correctPassword = '122124'; // Password format: mmddyy for December 21, 2024
-        let isAuthenticated = false;
+  const correctPassword = '122124'; // Password format: mmddyy for December 21, 2024
+  let isAuthenticated = false;
 
-        function renderLoginPage() {
-            return `
+  function renderLoginPage() {
+    return `
                 <div class="login-container">
                     <div class="card login-card">
                         <div class="text-center">
@@ -246,10 +243,10 @@
                             <h1 style="font-size: 1.5rem; font-weight: bold; color: #1f2937; margin-bottom: 0.5rem;">Yaya</h1>
                             <p style="color: #4b5563;">Enter our anniversary date (mm/dd/yy)</p>
                         </div>
-                        <input 
-                            type="password" 
-                            id="password" 
-                            class="input" 
+                        <input
+                            type="password"
+                            id="password"
+                            class="input"
                             placeholder="Enter password"
                         >
                         <button onclick="checkPassword()" class="button">
@@ -258,10 +255,10 @@
                     </div>
                 </div>
             `;
-        }
+  }
 
-        function renderMainContent() {
-            return `
+  function renderMainContent() {
+    return `
                 <div class="container">
                     <!-- Timer Card -->
                     <div class="card">
@@ -336,47 +333,47 @@
                     </div>
                 </div>
             `;
+  }
+
+  function updateTimer() {
+    const startDate = new Date('2024-12-21T00:00:00-08:00'); // LA time
+    const now = new Date();
+    const difference = now - startDate;
+
+    document.getElementById('days').textContent = Math.floor(difference / (1000 * 60 * 60 * 24));
+    document.getElementById('hours').textContent = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    document.getElementById('minutes').textContent = Math.floor((difference / 1000 / 60) % 60);
+    document.getElementById('seconds').textContent = Math.floor((difference / 1000) % 60);
+  }
+
+  function checkPassword() {
+    const password = document.getElementById('password').value;
+    if (password === correctPassword) {
+      isAuthenticated = true;
+      render();
+      setInterval(updateTimer, 1000);
+    } else {
+      alert('Incorrect password! Hint: Try our anniversary date (mm/dd/yy)');
+      document.getElementById('password').value = '';
+    }
+  }
+
+  function render() {
+    const app = document.getElementById('app');
+    app.innerHTML = isAuthenticated ? renderMainContent() : renderLoginPage();
+    if (!isAuthenticated) {
+      lucide.createIcons();
+      const input = document.getElementById('password');
+      input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          checkPassword();
         }
+      });
+    }
+  }
 
-        function updateTimer() {
-            const startDate = new Date('2024-12-21T00:00:00-08:00'); // LA time
-            const now = new Date();
-            const difference = now - startDate;
-
-            document.getElementById('days').textContent = Math.floor(difference / (1000 * 60 * 60 * 24));
-            document.getElementById('hours').textContent = Math.floor((difference / (1000 * 60 * 60)) % 24);
-            document.getElementById('minutes').textContent = Math.floor((difference / 1000 / 60) % 60);
-            document.getElementById('seconds').textContent = Math.floor((difference / 1000) % 60);
-        }
-
-        function checkPassword() {
-            const password = document.getElementById('password').value;
-            if (password === correctPassword) {
-                isAuthenticated = true;
-                render();
-                setInterval(updateTimer, 1000);
-            } else {
-                alert('Incorrect password! Hint: Try our anniversary date (mm/dd/yy)');
-                document.getElementById('password').value = '';
-            }
-        }
-
-        function render() {
-            const app = document.getElementById('app');
-            app.innerHTML = isAuthenticated ? renderMainContent() : renderLoginPage();
-            if (!isAuthenticated) {
-                lucide.createIcons();
-                const input = document.getElementById('password');
-                input.addEventListener('keypress', (e) => {
-                    if (e.key === 'Enter') {
-                        checkPassword();
-                    }
-                });
-            }
-        }
-
-        // Initial render
-        render();
-    </script>
+  // Initial render
+  render();
+</script>
 </body>
 </html>
